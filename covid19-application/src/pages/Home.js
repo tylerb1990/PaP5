@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom';
 // COMPONENT
 function Home() {
     // STATE
-    const [state, setState] = React.useState([]);
+    const [state, setState] = useState([]);
 
 
     // FETCH DATA FROM COVID-19 DATA
@@ -20,7 +20,7 @@ function Home() {
             "x-rapidapi-host": "covid-19-data.p.rapidapi.com"
 	    }})
             .then(response => response.json()) // Recieve data and parse to JSON data
-            .then(({ data: stat }) => {
+            .then(({ data: state }) => {
                 setState(state);
                 console.log(state)
             })
@@ -28,10 +28,6 @@ function Home() {
                 console.error(e);
             });
     }, []);
-
-
-    // let covidData
-    
 
 
     // RETURN COMPONENT
@@ -56,7 +52,7 @@ const styles = {
         alignItems: 'center'
     },
     h1: {
-        marginBottom: '20px',
+        margin: '0 auto 20px auto',
         textTransform: 'uppercase',
         fontSize: '80px',
         fontWeight: '200',
