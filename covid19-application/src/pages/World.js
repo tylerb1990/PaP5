@@ -12,20 +12,20 @@ function World() {
 
 
     // FETCH DATA FROM COVID-19 DATA
-    fetch("https://covid-19-data.p.rapidapi.com/totals?date=2020-07-21", {
+    /* fetch("https://covid-19-data.p.rapidapi.com/totals?date=2020-07-21", {
         "method": "GET",
         "headers": {
             "x-rapidapi-key": "5dccde9c26msh28986ae4f6e7eaap16cbe0jsn96a3b392882c",
             "x-rapidapi-host": "covid-19-data.p.rapidapi.com"
 	    }
     })
-    .then(response => response.json()) // Recieve datat and parse to JSON data
+    .then(response => response.json()) // Recieve data and parse to JSON data
     .then(responseAsJSON => {
         console.log(responseAsJSON);
     })
     .catch(e => {
         console.error(e);
-    });
+    }); */
     
 
     // RETURN COMPONENT
