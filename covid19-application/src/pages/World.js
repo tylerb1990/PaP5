@@ -1,39 +1,45 @@
 // IMPORTS
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Data from '../components/data/Data';
 import Btn from '../components/buttons/Btn';
 import { NavLink } from 'react-router-dom';
+import myModal from '../components/modal/MyModal';
 
 
 // COMPONENT
 function World() {
     // STATE
-    const [state, setState] = useState({ });
+    const [data, setData] = useState({ });
 
+    // useEffect to fetch api data
+    useEffect(() => {
+        fetch("https://covid-19-data.p.rapidapi.com/totals?date=2020-07-21", {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-key": "5dccde9c26msh28986ae4f6e7eaap16cbe0jsn96a3b392882c",
+                "x-rapidapi-host": "covid-19-data.p.rapidapi.com"
+            }})
+                .then( response => response.json())
+                .then( data => {
+                    setData(data) // Send data to state
+                    console.log(data)
+                })
+                .catch( e => {
+                    console.error(e); // Log any errors
+                });
+    }, []);
 
-    // FETCH DATA FROM COVID-19 DATA
-    /* fetch("https://covid-19-data.p.rapidapi.com/totals?date=2020-07-21", {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-key": "5dccde9c26msh28986ae4f6e7eaap16cbe0jsn96a3b392882c",
-            "x-rapidapi-host": "covid-19-data.p.rapidapi.com"
-	    }
-    })
-    .then(response => response.json()) // Recieve data and parse to JSON data
-    .then(responseAsJSON => {
-        console.log(responseAsJSON);
-    })
-    .catch(e => {
-        console.error(e);
-    }); */
-    
 
     // RETURN COMPONENT
     return(
         <div style={styles.main}>
             <h1 style={styles.h1}>COVID-19 Worldwide Cases in the Last 24hrs</h1>
+
+            <Data dataType={'Confirmed in last 24hrs'} data={data[0].confirmed.toLocaleString('en-US')} />
+            <Data dataType={'Critical in last 24hrs'} data={data[0].critical.toLocaleString('en-US')} />
+            <Data dataType={'Deaths in the last 24hrs'} data={data[0].deaths.toLocaleString('en-US')} />
+
             <NavLink to='/Home'><Btn text={'Total Cases Worldwide'}/></NavLink>
-            <Btn text={'Search By Country'}/>
         </div>
     )
 }
@@ -50,7 +56,7 @@ const styles = {
         alignItems: 'center'
     },
     h1: {
-        marginBottom: '20px',
+        marginBottom: '50px',
         textTransform: 'uppercase',
         fontSize: '80px',
         fontWeight: '200',

@@ -20,11 +20,11 @@ export default Data;
 const styles = {
     wrapper: {
         width: '60%',
-        margin: '25px auto',
+        margin: '0 auto 25px auto',
         padding: '10px',
         background: '#0B132B',
         borderRadius: '50px',
-        boxShadow: '12px 12px 16px rgba(0,0,0,.3), -8px -8px 12px rgba(58,80,107,.1)',
+        boxShadow: '5px 5px 12px rgba(0,0,0,.3), -5px -5px 12px rgba(58,80,107,.1)',
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
@@ -36,6 +36,7 @@ const styles = {
         color: '#3A506B'
     },
     innerWrap: {
+        width: '20%',
         padding: '7px 30px',
         background: '#1C2541',
         borderRadius: '50px',
