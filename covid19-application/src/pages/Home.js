@@ -40,10 +40,10 @@ function Home() {
         <div style={styles.main}>
             <h1 style={styles.h1}>Covid19 Worldwide Totals</h1>
 
-            <Data dataType={'Confirmed'} data={data[0].confirmed.toLocaleString('en-US')} />
+            {/* <Data dataType={'Confirmed'} data={data[0].confirmed.toLocaleString('en-US')} />
             <Data dataType={'Recovered'} data={data[0].recovered.toLocaleString('en-US')} />
             <Data dataType={'Critical'} data={data[0].critical.toLocaleString('en-US')} />
-            <Data dataType={'Dead'} data={data[0].deaths.toLocaleString('en-US')} />
+            <Data dataType={'Dead'} data={data[0].deaths.toLocaleString('en-US')} /> */}
 
             <NavLink to='/World'><Btn text={'Last 24hrs Worldwide'}/></NavLink>
             <MyModal></MyModal>

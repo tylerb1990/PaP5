@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { Modal } from 'react-responsive-modal';
 import Btn from '../buttons/Btn';
+import Data from '../data/Data';
 
 
 // COMPONENT
